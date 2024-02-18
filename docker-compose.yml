@@ -1,0 +1,9 @@
+services:
+  db:
+    image: postgres
+    ports:
+      - '5433:5432'
+    environment:
+      - POSTGRES_USER=adm
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=email_db
