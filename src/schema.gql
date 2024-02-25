@@ -2,24 +2,38 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 type Mutation {
+  authenticate(email: String!, password: String!): Token!
   createUser(user: UserCreateInput!): User!
-  removeUser(id: Int!): User!
+  deleteUser(id: Int!): User!
   updateUser(id: Float!, updateUserInput: UserUpdateInput!): User!
 }
 
 type Query {
   user(id: Int!): User!
-  users: [User!]!
+  users(filters: UserFilterInput!): [User!]!
+}
+
+type Token {
+  token: String!
+  user: UserToken
 }
 
 type User {
   active: Boolean!
+  created_at: DateTime!
   deleted: Boolean!
   email: String!
   id: Int!
+  id_profile: Int!
   name: String!
   password: String!
+  updated_at: DateTime!
 }
 
 input UserCreateInput {
@@ -27,13 +41,26 @@ input UserCreateInput {
   deleted: Boolean! = false
   email: String!
   name: String!
-  password: String!
+}
+
+input UserFilterInput {
+  active: Boolean
+  deleted: Boolean
+  email: String
+  name: String
+}
+
+type UserToken {
+  email: String!
+  id: Int!
+  id_profile: Int!
+  name: String!
 }
 
 input UserUpdateInput {
-  active: Boolean! = true
-  deleted: Boolean! = false
-  email: String!
-  name: String!
-  password: String!
+  active: Boolean = true
+  deleted: Boolean = false
+  email: String
+  name: String
+  password: String
 }

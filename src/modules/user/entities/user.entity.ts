@@ -20,5 +20,14 @@ export class User {
   @Field()
   deleted: boolean;
 
+  @Field(() => Int)
+  id_profile: number
+
+  @Field()
+  created_at: Date
+
+  @Field()
+  updated_at: Date
+
 }
 

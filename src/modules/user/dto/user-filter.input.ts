@@ -1,7 +1,8 @@
 import { Field, InputType } from "@nestjs/graphql";
 
 @InputType()
-export class UserUpdateInput {
+export class UserFilterInput {
+
 
   @Field({ nullable: true })
   name: string;
@@ -10,11 +11,9 @@ export class UserUpdateInput {
   email: string;
 
   @Field({ nullable: true })
-  password: string;
-
-  @Field({ defaultValue: true, nullable: true })
   active: boolean;
 
-  @Field({ defaultValue: false, nullable: true })
+  @Field({ nullable: true })
   deleted: boolean;
+
 }

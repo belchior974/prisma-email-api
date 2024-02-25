@@ -17,6 +17,7 @@ model user {
   password   String
   active     Boolean
   deleted    Boolean
+  id_profile Int      @default(0)
   created_at DateTime @default(now())
   updated_at DateTime @default(now())
 }

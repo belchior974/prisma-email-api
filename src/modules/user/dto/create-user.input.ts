@@ -8,8 +8,8 @@ export class UserCreateInput {
   @Field()
   email: string;
 
-  @Field()
-  password: string;
+  // @Field()
+  // password: string;
 
   @Field({ defaultValue: true })
   active: boolean;
